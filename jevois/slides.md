@@ -227,7 +227,6 @@ def postprocess(self, frame: np.ndarray, outs: list):
 
 ```python
 # @author Laurent Itti
-#
 # @videomapping YUYV 640 502 20.0 YUYV 640 480 20.0 JeVois PyDetectionDNN
 # @email itti@usc.edu
 # @address 880 W 1st St Suite 807, Los Angeles CA 90012, USA
@@ -240,5 +239,3 @@ def postprocess(self, frame: np.ndarray, outs: list):
 # @restrictions None
 # @ingroup modules
 ```
-
----
