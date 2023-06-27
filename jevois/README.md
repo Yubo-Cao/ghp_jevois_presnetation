@@ -1,11 +1,6 @@
-# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
+Welcome to GHP JeVois presentation.
 
-To start the slide show:
+- PyDetectionDNN module
+- PySandbox module
 
-- `npm install`
-- `npm run dev`
-- visit http://localhost:3030
-
-Edit the [slides.md](./slides.md) to see the changes.
-
-Learn more about Slidev on [documentations](https://sli.dev/).
+Courtesy of Krish S., Yubo C., and Austin Y.
