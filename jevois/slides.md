@@ -37,7 +37,11 @@ The purpose of this tutorial is to detect face using OpenCV deep neutral network
 layout: cols
 ---
 
-## Initialization Code
+::title::
+
+Initialization Code
+
+::default::
 
 ```python {all|1|3-6|7|8}
 import pyjevois
@@ -62,8 +66,14 @@ import numpy as np
 </v-clicks>
 
 ---
+layout: cols
+---
 
-## `__init__` I
+::title:: 
+
+`__init__` I
+
+::default::
 
 ```python {all|1|3|4|5-10}
 def __init__(self):
@@ -78,6 +88,8 @@ def __init__(self):
     self.rgb = False
 ```
 
+::right::
+
 <v-clicks at="0">
 
 - `confThreshold` is the min confidence that a bbox need to have to be considered as a detection
@@ -91,8 +103,14 @@ def __init__(self):
 </v-clicks>
 
 ---
+layout: cols
+---
 
-## `__init__` II
+::title:: 
+
+`__init__` II
+
+::default::
 
 ```python {all|1-2|3-4|5-|all}
 # Load face model
@@ -105,6 +123,8 @@ classnames = path + "opencv_face_detector.classes"
 modelname = path + "opencv_face_detector.caffemodel"
 configname = path + "opencv_face_detector.prototxt"
 ```
+
+::right::
 
 <v-clicks at="0">
 
@@ -146,7 +166,11 @@ self.outNames = self.net.getUnconnectedOutLayersNames()
 layout: cols
 ---
 
-## `process` I
+::title::
+
+`process` I
+
+::default::
 
 ```python {all|1-5|6-7|8-10|all}
 def process(
@@ -174,8 +198,16 @@ def process(
 </v-clicks>
 
 ---
+layout: cols
+---
 
-## `process` II
+
+::title::
+
+`preprocess` I
+
+
+::default::
 
 ```python
 # Create a 4D blob from a frame.
@@ -197,6 +229,15 @@ frame = np.vstack((frame, msgbox))
 # Send output frame to host:
 outframe.sendCv(frame)
 ```
+
+
+::right::
+
+- `blobFromImage` preprocess the image.  Let image be $\mathbb{X}\in\mathbb{R}^{H\times W\times C}$, where $H$ is height, $W$ is width, and $C$ is channel count of the image.
+  - The image is first resized to $\mathbb{X}'\in\mathbb{R}^{N\times C\times H'\times W'}$, where $N$, $H'$, $W'$ are batch size ($N=1$), target height, and width, respectively.
+  - The resized image is then processed as $(\mathbb{X}' - \mu) \times \sigma$, where $\mu$ is the mean and $\sigma$ is the scale factor.
+  - `rgb=False`: no channel swapping.
+  - `crop=False`: no cropping, only resizing.
 
 ---
 

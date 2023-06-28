@@ -6,15 +6,14 @@ const props = defineProps({
     layoutClass: {
         type: String,
     },
-    title: {
-        type: String,
-        default: '',
-    },
 })
 </script>
 
 <template>
-    <div class="slidev-layout two-columns w-full h-full grid grid-cols-2 gap-2" :class="props.layoutClass">
+    <div class="slidev-layout two-columns w-full h-full grid grid-cols-2 gap-x-4 content-center grid-rows-[min-content,1fr]" :class="props.layoutClass">
+        <h2 class="col-span-2">
+            <slot name="title" />
+        </h2>
         <div class="col-left" :class="props.class">
             <slot />
         </div>
